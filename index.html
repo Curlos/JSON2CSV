@@ -5,10 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>My Project</title>
+    <title>JSON2CSV</title>
 </head>
 <body>
-    <h1>My Project</h1>
+    <h1>JSON to CSV Converter</h1>
+    <hr>
+    <p>Paste Your JSON Here:</p>
+
+    <div id="error">Invalid CSV!</div>
+
+    <textarea id="json-data"rows="20" cols="100"></textarea>
+
+    <div class="buttons">
+        <input type="submit" id="convert-csv" value="Convert to CSV">
+        <input type="submit" id="download-csv" value="Download to CSV">
+    </div>
+
+    <textarea id="csv-data" rows="20" cols="100"></textarea>
     
 
     <script src="script.js"></script>

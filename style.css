@@ -6,9 +6,20 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     margin: 0;
+}
+
+.buttons {
+    margin: 0.5%;
+}
+
+#error {
+    border: 2px solid red;
+    background-color: #edbebe;
+    border-radius: 15px;
+    color: red;
+    font-size: xx-large;
+    padding: 20px;
+    display: None;
+    margin: 20px;
 }
