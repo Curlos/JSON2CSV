@@ -1,5 +1,6 @@
 document.getElementById('convert-csv').addEventListener('click', () => {
     let convertedCSV = convertJSONtoCSV();
+    document.getElementById('csv-data').innerHTML = convertedCSV;
 });
 
 const convertJSONtoCSV = () => {
@@ -15,19 +16,29 @@ const convertJSONtoCSV = () => {
     let jsonString = document.getElementById('json-data').value;
     let jsonData = JSON.parse(jsonString);
 
-    let firstRow = Object.keys(jsonData[0]);
+    let lines = [];
+    let firstLineArr = [];
 
-    for(let obj of jsonData) {
+    for (let key of Object.keys(jsonData[0])) {
+        firstLineArr.push(`"${key}"`);
+    }
+
+    let firstLineStr = firstLineArr.join() + '\n';
+    lines.push(firstLineStr);
+
+    for (let obj of jsonData) {
         let lineArr = []
 
         for(let value of Object.values(obj)) {
             lineArr.push(`"${value}"`);
         }
-        let lineStr = lineArr.join();
-        console.log([lineStr])
-        console.log(lineStr.slice(0, -1) + '\n');
+        let lineStr = lineArr.join() + '\n';
+        lines.push(lineStr);
     }
-    console.log(Object.values(jsonData[0]));
+
+    let convertedCsv = lines.join('')
+    
+    return convertedCsv;
 }
 
 const displayErrorMessage = () => {
