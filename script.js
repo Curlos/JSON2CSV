@@ -1,6 +1,19 @@
 document.getElementById('convert-csv').addEventListener('click', () => {
     let convertedCSV = convertJSONtoCSV();
-    document.getElementById('csv-data').innerHTML = convertedCSV;
+
+    if(convertedCSV) {
+        document.getElementById('csv-data').value = convertedCSV;
+    }
+});
+
+document.getElementById('clear-json-csv').addEventListener('click', () => {
+    let jsonData = document.getElementById('json-data');
+    let csvData = document.getElementById('csv-data');
+
+    console.log(jsonData);
+    console.log(csvData);
+    jsonData.value = '';
+    csvData.value = '';
 });
 
 const convertJSONtoCSV = () => {
@@ -15,6 +28,8 @@ const convertJSONtoCSV = () => {
 
     let jsonString = document.getElementById('json-data').value;
     let jsonData = JSON.parse(jsonString);
+
+    console.log(jsonData);
 
     let lines = [];
     let firstLineArr = [];
@@ -37,7 +52,7 @@ const convertJSONtoCSV = () => {
     }
 
     let convertedCsv = lines.join('')
-    
+    console.log(convertedCsv);
     return convertedCsv;
 }
 
